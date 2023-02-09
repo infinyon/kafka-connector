@@ -1,0 +1,64 @@
+[package]
+name = "kafka-sink"
+group = "fluvio"
+version = "0.4.0"
+apiVersion = "0.4.0"
+fluvio = "0.10.0"
+description = "Kafka sink connector"
+license = "Apache-2.0"
+
+[direction]
+dest = true
+
+[deployment]
+binary = "kafka-sink"
+
+[custom]
+name = "kafka"
+required = ["url", "topic"]
+
+[custom.properties.url]
+title = "Url"
+description = "A Comma separated list of the kafka brokers to connect to"
+type = "string"
+
+[custom.properties.topic]
+title = "Topic"
+description = "The kafka topic to use"
+type = "string"
+
+[custom.properties.partition]
+title = "Partition"
+description = "The kafka partition to use"
+type = "string"
+
+[custom.properties.options]
+title = "Options"
+description = "Additional kafka options"
+type = "map"
+
+[custom.properties.create_topic]
+title = "CreateTopic"
+description = "Boolean to create a kafka topic. Defaults to `false`"
+type = "boolean"
+
+[custom.properties.security]
+title = "Security"
+description = "Kafka security protocol config"
+type = "object"
+
+[custom.properties.security.ssl_key]
+title = "SslKey"
+description = "The SSL key file to use"
+type = "object"
+
+[custom.properties.security.ssl_cert]
+title = "SslCert"
+description = "The SSL cert file to use"
+type = "object"
+
+[custom.properties.security.ssl_ca]
+title = "SslCa"
+description = "The SSL ca file to use"
+type = "object"
+
