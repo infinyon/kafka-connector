@@ -30,7 +30,7 @@ type = "string"
 [custom.properties.partition]
 title = "Partition"
 description = "The kafka partition to use"
-type = "string"
+type = "integer"
 
 [custom.properties.options]
 title = "Options"
