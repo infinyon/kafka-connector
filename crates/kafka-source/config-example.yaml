@@ -1,0 +1,10 @@
+meta:
+  version: latest
+  name: my-kafka-connector
+  type: kafka-source
+  topic: kafka-topic
+  create-topic: true
+kafka:
+  url: "localhost:9092"
+  topic: fluvio-topic 
+

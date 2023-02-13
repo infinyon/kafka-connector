@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "crates/kafka-sink",
+    "crates/kafka-source",
 ]
 resolver = "2"
 

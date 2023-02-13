@@ -1,0 +1,11 @@
+---
+package_format_version: "0.2"
+name: kafka-source
+version: 0.4.0
+group: fluvio
+description: Kafka source connector
+license: e.g. Apache2
+visibility: private
+manifest:
+  - Connector.toml
+  - ../../target/release/kafka-source  

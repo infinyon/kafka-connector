@@ -1,0 +1,38 @@
+[package]
+name = "kafka-source"
+group = "fluvio"
+version = "0.4.0"
+apiVersion = "0.4.0"
+fluvio = "0.10.0"
+description = "Kafka source connector"
+license = "Apache-2.0"
+
+[direction]
+source = true
+
+[deployment]
+binary = "kafka-source"
+
+[custom]
+name = "kafka"
+required = ["url", "topic"]
+
+[custom.properties.url]
+title = "Url"
+description = "A Comma separated list of the kafka brokers to connect to"
+type = "string"
+
+[custom.properties.topic]
+title = "Topic"
+description = "The kafka topic to use"
+type = "string"
+
+[custom.properties.partition]
+title = "Partition"
+description = "The kafka partition to use"
+type = "integer"
+
+[custom.properties.group]
+title = "Group"
+description = "Kafka consumer group"
+type = "string"
