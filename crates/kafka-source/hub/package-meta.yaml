@@ -1,7 +1,7 @@
 ---
 package_format_version: "0.2"
 name: kafka-source
-version: 0.1.0
+version: 0.1.1
 group: infinyon
 description: Kafka source connector
 license: Apache2
@@ -9,3 +9,4 @@ visibility: public
 manifest:
   - Connector.toml
   - ../../target/release/kafka-source  
+  - ../../README.md

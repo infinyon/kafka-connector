@@ -7,6 +7,9 @@ license = "Apache 2.0"
 authors = ["Fluvio Contributors <team@fluvio.io>"]
 description = "A Fluvio connector that sends records to Kafka"
 
+[features]
+cmake-build = ["rdkafka/cmake-build"]
+
 [dependencies]
 async-trait = { workspace = true }
 futures = { workspace = true  }
@@ -15,9 +18,8 @@ async-std = { workspace = true }
 serde = { workspace = true }
 tempfile = { version = "3.3", default-features = false, features = [] }
 
-# There is some difference between rev v0.26.0 and the 0.26.0 on crates.io.
-# Changing it to use the crates.io version breaks the musl cross compile.
-rdkafka = { version ="0.29", features = ["cmake-build", "libz-static", "tokio", "ssl-vendored" , "gssapi-vendored"], default-features = false  }
+rdkafka-sys = { version = "=4.0.0+1.6.1" }
+rdkafka = { version ="0.27", features = ["libz-static", "tokio", "ssl-vendored"], default-features = false  }
 
 fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
