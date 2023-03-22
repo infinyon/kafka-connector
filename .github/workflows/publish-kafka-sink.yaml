@@ -1,8 +1,11 @@
-name: Publish Hub Dev - kafka-source
+name: Publish Hub - kafka-sink
 
 permissions: read-all
 
 on:
+  push:
+    tags:        
+      - v*
   workflow_dispatch:
     inputs:
       branch:
@@ -27,8 +30,8 @@ jobs:
           echo "$HOME/.fluvio/bin" >> $GITHUB_PATH
       - name: Install Fluvio CDK
         run: fluvio install cdk --develop
-      - name: Fluvio Login to Dev Hub
-        run: fluvio cloud login --email ${{ secrets.DEV_HUB_USER_EMAIL }} --password ${{ secrets.DEV_HUB_USER_PASSWORD }} --remote ${{ vars.DEV_CLOUD_URL }}
+      - name: Fluvio Login to Hub
+        run: fluvio cloud login --email ${{ secrets.HUB_USER_EMAIL }} --password ${{ secrets.HUB_USER_PASSWORD }}
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.branch }}
@@ -39,16 +42,15 @@ jobs:
         run: cargo install cross
       - name: Build
         run: |
-          cross build --profile ${{ matrix.rust-profile }}  --target ${{ matrix.rust-target }} -p kafka-source
+          cross build --profile ${{ matrix.rust-profile }}  --target ${{ matrix.rust-target }} -p kafka-sink
           cp target/${{ matrix.rust-target }}/${{ matrix.rust-profile }}/* target/${{ matrix.rust-profile }}/ | true
       - name: Publish
         run: |
-          cd crates/kafka-source
+          cd crates/kafka-sink
           cat hub/package-meta.yaml
-          cdk publish --remote ${{ vars.DEV_HUB_URL }} --public-yes --target ${{ matrix.rust-target }}
+          cdk publish --public-yes --target ${{ matrix.rust-target }}
 
 
-    
   publish-macos-x86_64:
     name: macos-x86_64
     runs-on: macos-latest
@@ -65,7 +67,7 @@ jobs:
       - name: Install Fluvio CDK
         run: fluvio install cdk --develop
       - name: Fluvio Login to Dev Hub
-        run: fluvio cloud login --email ${{ secrets.DEV_HUB_USER_EMAIL }} --password ${{ secrets.DEV_HUB_USER_PASSWORD }} --remote ${{ vars.DEV_CLOUD_URL }}
+        run: fluvio cloud login --email ${{ secrets.HUB_USER_EMAIL }} --password ${{ secrets.HUB_USER_PASSWORD }}
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.branch }}
@@ -74,13 +76,13 @@ jobs:
           key: ${{ matrix.rust-target }}-${{ matrix.rust-profile }}
       - name: Build
         run: |
-          cargo build --profile ${{ matrix.rust-profile }}  --target ${{ matrix.rust-target }} -p kafka-source
+          cargo build --profile ${{ matrix.rust-profile }}  --target ${{ matrix.rust-target }} -p kafka-sink
           cp target/${{ matrix.rust-target }}/${{ matrix.rust-profile }}/* target/${{ matrix.rust-profile }}/ | true
       - name: Publish
         run: |
-          cd crates/kafka-source
+          cd crates/kafka-sink
           cat hub/package-meta.yaml
-          cdk publish --remote ${{ vars.DEV_HUB_URL }} --public-yes --target ${{ matrix.rust-target }}
+          cdk publish  --public-yes --target ${{ matrix.rust-target }}
     
 
   publish-macos-aarch64:
@@ -101,7 +103,7 @@ jobs:
       - name: Install Fluvio CDK
         run: fluvio install cdk --develop
       - name: Fluvio Login to Dev Hub
-        run: fluvio cloud login --email ${{ secrets.DEV_HUB_USER_EMAIL }} --password ${{ secrets.DEV_HUB_USER_PASSWORD }} --remote ${{ vars.DEV_CLOUD_URL }}
+        run: fluvio cloud login --email ${{ secrets.HUB_USER_EMAIL }} --password ${{ secrets.HUB_USER_PASSWORD }}
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.branch }}
@@ -138,12 +140,12 @@ jobs:
           key: ${{ steps.compiled-openssl-restore.outputs.cache-primary-key }}   
       - name: Build
         run: |
-          rustup target add aarch64-apple-darwin
-          OPENSSL_INCLUDE_DIR=$OPENSSL_TARGET_DIR/include OPENSSL_LIB_DIR=$OPENSSL_TARGET_DIR/lib  OPENSSL_STATIC=1 cargo build --profile ${{ matrix.rust-profile }}  --target ${{ matrix.rust-target }} -p kafka-source
+          rustup target add ${{ matrix.rust-target }}
+          OPENSSL_INCLUDE_DIR=$OPENSSL_TARGET_DIR/include OPENSSL_LIB_DIR=$OPENSSL_TARGET_DIR/lib  OPENSSL_STATIC=1 cargo build --profile ${{ matrix.rust-profile }}  --target ${{ matrix.rust-target }} -p kafka-sink --features cmake-build
           cp target/${{ matrix.rust-target }}/${{ matrix.rust-profile }}/* target/${{ matrix.rust-profile }}/ | true
       - name: Publish
         run: |
-          cd crates/kafka-source
+          cd crates/kafka-sink
           cat hub/package-meta.yaml
-          cdk publish --remote ${{ vars.DEV_HUB_URL }} --public-yes --target ${{ matrix.rust-target }}
+          cdk publish --public-yes --target ${{ matrix.rust-target }}
 
