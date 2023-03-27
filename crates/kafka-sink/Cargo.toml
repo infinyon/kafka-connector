@@ -7,9 +7,6 @@ license = "Apache 2.0"
 authors = ["Fluvio Contributors <team@fluvio.io>"]
 description = "A Fluvio connector that sends records to Kafka"
 
-[features]
-cmake-build = ["rdkafka/cmake-build"]
-
 [dependencies]
 async-trait = { workspace = true }
 futures = { workspace = true  }
@@ -23,3 +20,6 @@ rdkafka = { version ="0.27", features = ["libz-static", "tokio", "ssl-vendored"]
 
 fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
+
+[target.aarch64-apple-darwin.dependencies]
+rdkafka = { version ="0.27", features = ["libz-static", "tokio", "ssl-vendored", "cmake-build"], default-features = false  }
