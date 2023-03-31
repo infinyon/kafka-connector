@@ -30,7 +30,7 @@ Parameters `ssl_key`, `ssl_cert` and `ssl_ca` can be defined via `file` - path t
 Example without security:
 ```yaml
 meta:
-  version: latest
+  version: 0.1.0
   name: my-kafka-connector
   type: kafka-sink
   topic: kafka-topic
@@ -44,7 +44,7 @@ kafka:
 Example with security enabled:
 ```yaml
 meta:
-  version: latest
+  version: 0.1.0
   name: my-kafka-connector
   type: kafka-sink
   topic: kafka-topic
@@ -89,7 +89,7 @@ See [docs](https://www.fluvio.io/connectors/inbound/kafka/) here.
 Example:
 ```yaml
 meta:
-  version: latest
+  version: 0.1.0
   name: my-kafka-connector
   type: kafka-source
   topic: kafka-topic
