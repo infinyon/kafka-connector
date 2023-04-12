@@ -1,9 +1,9 @@
-use fluvio_connector_common::connector;
+use fluvio_connector_common::{connector, secret::SecretString};
 
 #[connector(config, name = "kafka")]
 #[derive(Debug)]
 pub(crate) struct KafkaConfig {
-    pub url: String,
+    pub url: SecretString,
 
     pub group: Option<String>,
 

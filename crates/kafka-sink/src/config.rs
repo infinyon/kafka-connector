@@ -1,13 +1,13 @@
 use std::{collections::HashMap, path::PathBuf};
 
 use anyhow::Context;
-use fluvio_connector_common::connector;
+use fluvio_connector_common::{connector, secret::SecretString};
 use serde::Deserialize;
 
 #[connector(config, name = "kafka")]
 pub(crate) struct KafkaConfig {
     /// A Comma separated list of the kafka brokers to connect to
-    pub url: String,
+    pub url: SecretString,
 
     /// The kafka topic to use
     pub topic: String,

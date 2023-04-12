@@ -32,7 +32,7 @@ impl KafkaSink {
         } = config;
 
         let mut client_config = ClientConfig::from_iter(options.clone());
-        client_config.set("bootstrap.servers", url.clone());
+        client_config.set("bootstrap.servers", url.resolve()?.clone());
         if let Some(security) = security {
             if let Some(protocol) = &security.security_protocol {
                 client_config.set("security.protocol", protocol.as_str());

@@ -27,7 +27,7 @@ impl KafkaSource {
             topic,
             partition,
         } = config;
-        let consumer = Consumer::from_hosts(vec![url.clone()])
+        let consumer = Consumer::from_hosts(vec![url.resolve()?.clone()])
             .with_topic_partitions(topic.clone(), &[*partition])
             .with_fallback_offset(FetchOffset::Earliest)
             .with_group(
