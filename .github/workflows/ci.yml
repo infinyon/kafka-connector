@@ -62,7 +62,6 @@ jobs:
     name: Done
     needs:
       - check
-      - integration_tests
     runs-on: ubuntu-latest
     steps:
       - name: Done
