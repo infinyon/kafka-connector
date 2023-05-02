@@ -43,21 +43,25 @@ kafka:
 
 Example with security enabled:
 ```yaml
+apiVersion: 0.1.0
 meta:
   version: 0.1.1
   name: my-kafka-connector
   type: kafka-sink
   topic: kafka-topic
   create-topic: true
+  secrets:
+    - name: KAFKA_BROKER_URL
+    - name: SSL_CERT_PEM
 kafka:
-  url: "KAFKA_BROKER_URL"
+  url: ${{ secrets.KAFKA_BROKER_URL }}
   topic: fluvio-topic 
   create-topic: true
   security:
     ssl_key:
       file: /path/to/file
     ssl_cert:
-      pem: "CONTENT IN PEM FORMAT"
+      pem: "${{ secrets.SSL_CERT_PEM }}"
     ssl_ca:
       file: /path/to/file
     security_protocol: ssl
@@ -88,8 +92,9 @@ See [docs](https://www.fluvio.io/connectors/inbound/kafka/) here.
 
 Example:
 ```yaml
+apiVersion: 0.1.0
 meta:
-  version: 0.1.1
+  version: 0.2.0
   name: my-kafka-connector
   type: kafka-source
   topic: kafka-topic
