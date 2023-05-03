@@ -29,6 +29,7 @@ Parameters `ssl_key`, `ssl_cert` and `ssl_ca` can be defined via `file` - path t
 
 Example without security:
 ```yaml
+apiVersion: 0.1.0
 meta:
   version: 0.1.1
   name: my-kafka-connector
