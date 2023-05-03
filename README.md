@@ -106,7 +106,7 @@ kafka:
 ```
 
 ### Usage
-To try out Kafka Sink connector locally, you can use Fluvio CDK tool:
+To try out Kafka Source connector locally, you can use Fluvio CDK tool:
 ```bash
 fluvio install cdk
 
