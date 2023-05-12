@@ -4,7 +4,7 @@ permissions: read-all
 
 on:
   push:
-    tags:        
+    tags:
       - v*
   workflow_dispatch:
     inputs:
@@ -19,7 +19,8 @@ jobs:
     with:
       package-name: kafka-source
       branch: ${{ github.event.inputs.branch }}
-      fail-fast: false  
+      readme: "./crates/kafka-source/README.md"
+      fail-fast: false
     secrets:
       CLOUD_USER_EMAIL: ${{ secrets.HUB_USER_EMAIL }}
       CLOUD_USER_PASSWORD: ${{ secrets.HUB_USER_PASSWORD }}
