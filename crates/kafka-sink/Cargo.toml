@@ -22,4 +22,4 @@ fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
 
 [target.aarch64-apple-darwin.dependencies]
-rdkafka = { version ="0.27", features = ["libz-static", "tokio", "ssl-vendored", "cmake-build"], default-features = false  }
+rdkafka = { version ="0.31", features = ["libz-static", "tokio", "ssl-vendored", "cmake-build"], default-features = false  }
