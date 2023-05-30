@@ -15,7 +15,7 @@ on:
 
 jobs:
   publish:
-    uses: infinyon/fluvio/.github/workflows/connector-publish.yml@master
+    uses: infinyon/fluvio/.github/workflows/connector-publish.yml@morenol-patch-1
     with:
       package-name: kafka-source
       branch: ${{ github.event.inputs.branch }}
