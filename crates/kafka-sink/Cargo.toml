@@ -16,10 +16,12 @@ serde = { workspace = true }
 tempfile = { version = "3.3", default-features = false, features = [] }
 
 rdkafka-sys = { version = "=4.4.0+1.6.1" }
-rdkafka = { version ="0.31", features = ["libz-static", "tokio", "ssl-vendored"], default-features = false  }
+rdkafka = { version ="0.31", features = ["libz-static", "tokio"], default-features = false  }
+openssl = { version = "0.10", features = ["vendored"] }
+
 
 fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
 
 [target.aarch64-apple-darwin.dependencies]
-rdkafka = { version ="0.31", features = ["libz-static", "tokio", "ssl-vendored", "cmake-build"], default-features = false  }
+rdkafka = { version ="0.31", features = ["libz-static", "tokio", "cmake-build"], default-features = false  }

@@ -1605,6 +1605,7 @@ dependencies = [
  "fluvio",
  "fluvio-connector-common",
  "futures",
+ "openssl",
  "rdkafka",
  "rdkafka-sys",
  "serde",
@@ -2194,7 +2195,6 @@ dependencies = [
  "libc",
  "libz-sys",
  "num_enum",
- "openssl-sys",
  "pkg-config",
 ]
 
