@@ -13,7 +13,7 @@ futures = { workspace = true  }
 anyhow = { workspace = true }
 async-std = { workspace = true }
 serde = { workspace = true }
-tempfile = { version = "3.3", default-features = false, features = [] }
+tempfile = { version = "3.6", default-features = false, features = [] }
 
 rdkafka-sys = { version = "=4.4.0+1.6.1" }
 rdkafka = { version ="0.31", features = ["libz-static", "tokio"], default-features = false  }
