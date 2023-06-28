@@ -15,8 +15,8 @@ async-std = { workspace = true }
 serde = { workspace = true }
 tempfile = { version = "3.6", default-features = false, features = [] }
 
-rdkafka-sys = { version = "=4.5.0+1.6.1" }
-rdkafka = { version ="0.32", features = ["libz-static", "tokio"], default-features = false  }
+rdkafka-sys = { version = "4.5.0+1.9.2" }
+rdkafka = { version ="0.32.2", features = ["libz-static", "tokio"], default-features = false  }
 openssl = { version = "0.10", features = ["vendored"] }
 
 
@@ -24,4 +24,4 @@ fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
 
 [target.aarch64-apple-darwin.dependencies]
-rdkafka = { version ="0.31", features = ["libz-static", "tokio", "cmake-build"], default-features = false  }
+rdkafka = { version ="0.32.2", features = ["libz-static", "tokio", "cmake-build"], default-features = false  }
