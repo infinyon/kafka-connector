@@ -16,7 +16,7 @@ serde = { workspace = true }
 tempfile = { version = "3.6", default-features = false, features = [] }
 
 rdkafka-sys = { version = "4.5.0+1.9.2" }
-rdkafka = { version ="0.32.2", features = ["libz-static", "tokio"], default-features = false  }
+rdkafka = { version ="0.33.0", features = ["libz-static", "tokio"], default-features = false  }
 openssl = { version = "0.10", features = ["vendored"] }
 
 
