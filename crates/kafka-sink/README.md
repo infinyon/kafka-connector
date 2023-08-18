@@ -74,5 +74,10 @@ fluvio install cdk
 cdk deploy -p kafka-sink start --config crates/kafka-sink/config-example.yaml
 ```
 
+### Testing with security
+[Instructions](https://github.com/galibey/kafka-docker-ssl) of how to deploy local kafka cluster with SSL using docker.
+After all steps done, in the `secrets` folder there will be `fluvio.key.pem`, `fluvio.pem` and `fake-ca-1.crt` files that can be used
+in the connector config as `ssl_key`, `ssl_cert` and `ssl_ca` correspondingly.
+
 ## Transformations
 Fluvio Kafka Connectors support [Transformations](https://www.fluvio.io/docs/concepts/transformations-chain/).
