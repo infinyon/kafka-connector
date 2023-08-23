@@ -58,33 +58,39 @@ impl SecurityProtocol {
 
 #[derive(Deserialize, Debug)]
 #[serde(rename_all = "snake_case")]
-pub(crate) enum SecurityFile {
-    File(PathBuf),
-    Pem(String),
+pub(crate) struct SecurityFile {
+    file: Option<PathBuf>,
+    pem: Option<String>,
 }
 
 impl SecurityFile {
     pub(crate) fn content(&self) -> anyhow::Result<String> {
-        match self {
-            Self::File(path) => std::fs::read_to_string(path).context(format!(
+        match (&self.file, &self.pem) {
+            (Some(path), _) => std::fs::read_to_string(path).context(format!(
                 "Unable to read content from file {}",
                 path.to_string_lossy()
             )),
-            Self::Pem(content) => Ok(content.clone()),
+            (_, Some(content)) => Ok(content.clone()),
+            (None, None) => Err(anyhow::anyhow!(
+                "neither file path nor pem content is not present"
+            )),
         }
     }
 
     pub(crate) fn path(&self) -> anyhow::Result<PathBuf> {
         use std::io::Write;
-        match self {
-            Self::File(path) => Ok(path.clone()),
-            Self::Pem(content) => {
+        match (&self.file, &self.pem) {
+            (Some(path), _) => Ok(path.clone()),
+            (_, Some(content)) => {
                 let mut tmpfile =
                     tempfile::NamedTempFile::new().context("Unable to create temp file")?;
                 write!(tmpfile, "{content}").context("Unable to write content to temp file")?;
                 let (_file, path) = tmpfile.keep()?;
                 Ok(path)
             }
+            (None, None) => Err(anyhow::anyhow!(
+                "neither file path nor pem content is not present"
+            )),
         }
     }
 }

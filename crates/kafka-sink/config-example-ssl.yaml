@@ -4,8 +4,14 @@ meta:
   type: kafka-sink
   topic: kafka-topic
   create-topic: true
+  secrets:
+    - name: BROKER_URL
+  consumer:
+    partition: all
 kafka:
-  url: "KAFKA_BROKER_URL"
+  url: 
+    secret:
+      name: BROKER_URL
   topic: fluvio-topic 
   create-topic: true
   security:
