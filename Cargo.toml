@@ -17,6 +17,6 @@ anyhow = { version = "1.0" }
 async-std = { version = "1.12",  default-features = false, features = ["attributes"]}
 serde = { version = "1.0", default-features = false, features = ["derive"]}
 
-fluvio = { git = "https://github.com/infinyon/fluvio", rev = "f37f00cbf4dc186afff16da035a775bf95320e3e"}
-fluvio-connector-common = { git = "https://github.com/infinyon/fluvio", rev = "f37f00cbf4dc186afff16da035a775bf95320e3e", features = ["derive"]}
+fluvio = { git = "https://github.com/infinyon/fluvio", rev = "d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"}
+fluvio-connector-common = { git = "https://github.com/infinyon/fluvio", rev = "d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0", features = ["derive"]}
 
