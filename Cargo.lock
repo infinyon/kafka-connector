@@ -139,7 +139,7 @@ dependencies = [
  "polling",
  "rustix 0.37.23",
  "slab",
- "socket2",
+ "socket2 0.4.9",
  "waker-fn",
 ]
 
@@ -926,7 +926,7 @@ dependencies = [
 [[package]]
 name = "fluvio"
 version = "0.21.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "anyhow",
  "async-channel",
@@ -965,7 +965,7 @@ dependencies = [
 [[package]]
 name = "fluvio-compression"
 version = "0.3.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "bytes",
  "flate2",
@@ -979,7 +979,7 @@ dependencies = [
 [[package]]
 name = "fluvio-connector-common"
 version = "0.0.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "anyhow",
  "async-net",
@@ -1001,7 +1001,7 @@ dependencies = [
 [[package]]
 name = "fluvio-connector-derive"
 version = "0.0.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1011,7 +1011,7 @@ dependencies = [
 [[package]]
 name = "fluvio-connector-package"
 version = "0.0.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "anyhow",
  "bytesize",
@@ -1032,7 +1032,7 @@ dependencies = [
 [[package]]
 name = "fluvio-controlplane-metadata"
 version = "0.24.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1058,9 +1058,9 @@ dependencies = [
 
 [[package]]
 name = "fluvio-future"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5f2d572470f98b25383ffe78d9c3fba2b986d9891efd78808025397e54eb1ec"
+checksum = "daf01d41a3439ecf3377477c34d5913241c186d03500a0a6793a6c2688815a61"
 dependencies = [
  "async-io",
  "async-net",
@@ -1074,6 +1074,7 @@ dependencies = [
  "openssl",
  "openssl-sys",
  "pin-project",
+ "socket2 0.5.3",
  "thiserror",
  "tracing",
  "tracing-subscriber",
@@ -1083,7 +1084,7 @@ dependencies = [
 [[package]]
 name = "fluvio-protocol"
 version = "0.10.6"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "bytes",
  "content_inspector",
@@ -1104,7 +1105,7 @@ dependencies = [
 [[package]]
 name = "fluvio-protocol-derive"
 version = "0.5.4"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1115,7 +1116,7 @@ dependencies = [
 [[package]]
 name = "fluvio-sc-schema"
 version = "0.21.0"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "anyhow",
  "fluvio-controlplane-metadata",
@@ -1131,7 +1132,7 @@ dependencies = [
 [[package]]
 name = "fluvio-smartengine"
 version = "0.7.7"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "anyhow",
  "cfg-if",
@@ -1151,7 +1152,7 @@ dependencies = [
 [[package]]
 name = "fluvio-smartmodule"
 version = "0.7.3"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "eyre",
  "fluvio-protocol",
@@ -1163,7 +1164,7 @@ dependencies = [
 [[package]]
 name = "fluvio-smartmodule-derive"
 version = "0.6.2"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1173,7 +1174,7 @@ dependencies = [
 [[package]]
 name = "fluvio-socket"
 version = "0.14.5"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "async-channel",
  "async-lock",
@@ -1197,7 +1198,7 @@ dependencies = [
 [[package]]
 name = "fluvio-spu-schema"
 version = "0.14.4"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "bytes",
  "derive_builder",
@@ -1215,7 +1216,7 @@ dependencies = [
 [[package]]
 name = "fluvio-stream-model"
 version = "0.9.3"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "async-rwlock",
  "event-listener",
@@ -1226,7 +1227,7 @@ dependencies = [
 [[package]]
 name = "fluvio-types"
 version = "0.4.3"
-source = "git+https://github.com/infinyon/fluvio?rev=f37f00cbf4dc186afff16da035a775bf95320e3e#f37f00cbf4dc186afff16da035a775bf95320e3e"
+source = "git+https://github.com/infinyon/fluvio?rev=d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0#d9a76327b674614c7373a9c12eb6a0ed2fcc4dc0"
 dependencies = [
  "event-listener",
  "thiserror",
@@ -1687,7 +1688,7 @@ dependencies = [
 
 [[package]]
 name = "kafka-sink"
-version = "0.4.1"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "async-std",
@@ -1704,7 +1705,7 @@ dependencies = [
 
 [[package]]
 name = "kafka-source"
-version = "0.4.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "async-std",
@@ -2607,6 +2608,16 @@ checksum = "64a4a911eed85daf18834cfaa86a79b7d266ff93ff5ba14005426219480ed662"
 dependencies = [
  "libc",
  "winapi",
+]
+
+[[package]]
+name = "socket2"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2538b18701741680e0322a2302176d3253a35388e2e62f172f64f4f16605f877"
+dependencies = [
+ "libc",
+ "windows-sys",
 ]
 
 [[package]]
