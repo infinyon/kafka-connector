@@ -18,7 +18,7 @@ tempfile = { version = "3.8", default-features = false, features = [] }
 
 # Features `ssl` or `ssl-vendored` must be enabled explicitely, otherwise it fails runtime with enabled ssl.
 # Before changing version make sure it compiles on *-unknown-linux-musl targets.
-rdkafka-sys = { version = "=4.0.0+1.6.1" }
+rdkafka-sys = { version = "=4.6.0+1.6.1" }
 rdkafka = { version ="0.27", features = ["libz-static", "tokio", "ssl-vendored"], default-features = false  }
 
 fluvio = { workspace = true }
