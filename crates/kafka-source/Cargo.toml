@@ -15,7 +15,7 @@ anyhow = { workspace = true }
 async-std = { workspace = true }
 serde = { workspace = true }
 
-kafka =  { version = "0.9" }
+kafka =  { version = "0.10" }
 
 fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
