@@ -35,7 +35,7 @@ impl KafkaSource {
                     .clone()
                     .unwrap_or_else(|| "fluvio-kafka-source".to_string()),
             )
-            .with_offset_storage(GroupOffsetStorage::Kafka)
+            .with_offset_storage(Some(GroupOffsetStorage::Kafka))
             .create()
             .context("Unable to create Kafka consumer")?;
 
