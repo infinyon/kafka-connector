@@ -40,8 +40,7 @@ impl KafkaSource {
             )
             .with_offset_storage(GroupOffsetStorage::Kafka)
             .with_fetch_max_bytes_per_partition(
-                    fetch_max_bytes_per_partition
-                .unwrap_or(DEFAULT_FETCH_MAX_BYTES_PER_PARTITION)
+                fetch_max_bytes_per_partition.unwrap_or(DEFAULT_FETCH_MAX_BYTES_PER_PARTITION),
             )
             .create()
             .context("Unable to create Kafka consumer")?;
@@ -54,15 +53,21 @@ impl KafkaSource {
 impl<'a> Source<'a, Record> for KafkaSource {
     async fn connect(self, _offset: Option<Offset>) -> Result<LocalBoxStream<'a, Record>> {
         let (sender, receiver) = channel::bounded(CHANNEL_BUFFER_SIZE);
-        spawn(kafka_loop(self.consumer, sender));
+        spawn(kafka_loop_wrapper(self.consumer, sender));
         Ok(receiver.boxed_local())
+    }
+}
+
+async fn kafka_loop_wrapper(consumer: Consumer, tx: Sender<Record>) {
+    if let Err(err) = kafka_loop(consumer, tx).await {
+        error!("Kafka loop failed: {}", err);
     }
 }
 
 async fn kafka_loop(mut consumer: Consumer, tx: Sender<Record>) -> Result<()> {
     info!("Kafka loop started");
     loop {
-        for ms in consumer.poll().context("Kafka poll failed")?.iter() {
+        for ms in consumer.poll()?.iter() {
             trace!(
                 "got {} messages, topic {}, partition {}",
                 ms.messages().len(),
@@ -72,10 +77,8 @@ async fn kafka_loop(mut consumer: Consumer, tx: Sender<Record>) -> Result<()> {
             for m in ms.messages() {
                 tx.send((m.key.into(), m.value.into())).await?;
             }
-            consumer
-                .consume_messageset(ms)
-                .context("Kafka message set consuming failed")?;
+            consumer.consume_messageset(ms)?
         }
-        consumer.commit_consumed().context("Kafka commit failed")?;
+        consumer.commit_consumed()?
     }
 }
