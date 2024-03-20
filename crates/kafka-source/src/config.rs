@@ -11,4 +11,7 @@ pub(crate) struct KafkaConfig {
 
     #[serde(default)]
     pub partition: i32,
+
+    #[serde(rename = "fetch-max-bytes-per-partition")]
+    pub fetch_max_bytes_per_partition: Option<i32>,
 }
