@@ -19,3 +19,4 @@ kafka =  { version = "0.9" }
 
 fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
+humantime = "2.1.0"

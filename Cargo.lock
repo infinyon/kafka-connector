@@ -1718,6 +1718,7 @@ dependencies = [
  "fluvio",
  "fluvio-connector-common",
  "futures",
+ "humantime",
  "kafka",
  "serde",
 ]

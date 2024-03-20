@@ -9,6 +9,7 @@ use fluvio_connector_common::{
 use futures::StreamExt;
 use source::KafkaSource;
 
+mod backoff;
 mod config;
 mod source;
 
