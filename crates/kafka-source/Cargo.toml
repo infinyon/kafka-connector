@@ -19,3 +19,5 @@ kafka =  { version = "0.10" }
 
 fluvio = { workspace = true }
 fluvio-connector-common = { workspace = true }
+humantime = "2.1.0"
+adaptive_backoff = "0.2.1"
