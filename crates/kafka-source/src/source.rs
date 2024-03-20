@@ -3,7 +3,7 @@ use async_std::channel::{self, Sender};
 use async_std::task::spawn;
 use async_trait::async_trait;
 use fluvio::{dataplane::record::RecordData, Offset, RecordKey};
-use fluvio_connector_common::tracing::{info, trace};
+use fluvio_connector_common::tracing::{error, info, trace};
 use fluvio_connector_common::Source;
 use futures::{stream::LocalBoxStream, StreamExt};
 use kafka::consumer::{Consumer, FetchOffset, GroupOffsetStorage};
@@ -11,6 +11,7 @@ use kafka::consumer::{Consumer, FetchOffset, GroupOffsetStorage};
 use crate::config::KafkaConfig;
 
 const CHANNEL_BUFFER_SIZE: usize = 10000;
+const DEFAULT_FETCH_MAX_BYTES_PER_PARTITION: i32 = 1024 * 1024;
 
 pub(crate) type Record = (RecordKey, RecordData);
 
@@ -26,7 +27,9 @@ impl KafkaSource {
             group,
             topic,
             partition,
+            fetch_max_bytes_per_partition,
         } = config;
+
         let consumer = Consumer::from_hosts(vec![url.resolve()?])
             .with_topic_partitions(topic.clone(), &[*partition])
             .with_fallback_offset(FetchOffset::Earliest)
@@ -36,6 +39,10 @@ impl KafkaSource {
                     .unwrap_or_else(|| "fluvio-kafka-source".to_string()),
             )
             .with_offset_storage(GroupOffsetStorage::Kafka)
+            .with_fetch_max_bytes_per_partition(
+                    fetch_max_bytes_per_partition
+                .unwrap_or(DEFAULT_FETCH_MAX_BYTES_PER_PARTITION)
+            )
             .create()
             .context("Unable to create Kafka consumer")?;
 
