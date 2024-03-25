@@ -14,7 +14,7 @@ anyhow = { workspace = true }
 async-std = { workspace = true }
 serde = { workspace = true }
 
-tempfile = { version = "3.8", default-features = false, features = [] }
+tempfile = { version = "3.10", default-features = false, features = [] }
 
 # Features `ssl` or `ssl-vendored` must be enabled explicitely, otherwise it fails runtime with enabled ssl.
 # Before changing version make sure it compiles on *-unknown-linux-musl targets.
