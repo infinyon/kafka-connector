@@ -3,7 +3,7 @@ mod sink;
 
 use config::KafkaConfig;
 use fluvio_connector_common::{connector, consumer::ConsumerStream, tracing::trace, Result, Sink};
-use futures::SinkExt;
+use futures::{SinkExt, StreamExt};
 use sink::KafkaSink;
 
 #[connector(sink)]
