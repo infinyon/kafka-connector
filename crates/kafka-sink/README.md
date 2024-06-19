@@ -29,7 +29,7 @@ Example without security:
 ```yaml
 apiVersion: 0.1.0
 meta:
-  version: 0.2.9
+  version: 0.2.10
   name: my-kafka-connector
   type: kafka-sink
   topic: kafka-topic
@@ -44,7 +44,7 @@ Example with security enabled:
 ```yaml
 apiVersion: 0.1.0
 meta:
-  version: 0.2.9
+  version: 0.2.10
   name: my-kafka-connector
   type: kafka-sink
   topic: kafka-topic
@@ -79,7 +79,7 @@ See the example below:
 ```yaml
 apiVersion: 0.2.0
 meta:
-  version: 0.2.9
+  version: 0.2.10
   name: my-kafka-connector
   type: kafka-sink
   topic:

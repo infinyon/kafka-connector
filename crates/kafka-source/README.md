@@ -17,7 +17,7 @@ Example:
 ```yaml
 apiVersion: 0.1.0
 meta:
-  version: 0.2.7
+  version: 0.2.8
   name: my-kafka-connector
   type: kafka-source
   topic: kafka-topic
