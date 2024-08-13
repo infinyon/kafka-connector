@@ -1,19 +1,20 @@
 use anyhow::Result;
 use config::KafkaConfig;
-use fluvio::TopicProducer;
+use futures::StreamExt;
+
+use fluvio::TopicProducerPool;
 use fluvio_connector_common::{
     connector,
     tracing::{debug, trace},
     Source,
 };
-use futures::StreamExt;
-use source::KafkaSource;
 
 mod config;
 mod source;
+use source::KafkaSource;
 
 #[connector(source)]
-async fn start(config: KafkaConfig, producer: TopicProducer) -> Result<()> {
+async fn start(config: KafkaConfig, producer: TopicProducerPool) -> Result<()> {
     debug!(?config);
     let source = KafkaSource::new(&config)?;
     let mut stream = source.connect(None).await?;
