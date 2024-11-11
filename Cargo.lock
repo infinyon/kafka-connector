@@ -176,7 +176,7 @@ dependencies = [
  "futures-lite 2.3.0",
  "parking",
  "polling 3.7.0",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "slab",
  "tracing",
  "windows-sys 0.52.0",
@@ -226,7 +226,7 @@ dependencies = [
  "cfg-if",
  "event-listener 3.1.0",
  "futures-lite 1.13.0",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "windows-sys 0.48.0",
 ]
 
@@ -242,7 +242,7 @@ dependencies = [
  "cfg-if",
  "futures-core",
  "futures-io",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "signal-hook-registry",
  "slab",
  "windows-sys 0.52.0",
@@ -447,7 +447,7 @@ dependencies = [
  "io-lifetimes 2.0.3",
  "ipnet",
  "maybe-owned",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "windows-sys 0.52.0",
  "winx",
 ]
@@ -471,7 +471,7 @@ dependencies = [
  "cap-primitives",
  "io-extras",
  "io-lifetimes 2.0.3",
- "rustix 0.38.37",
+ "rustix 0.38.40",
 ]
 
 [[package]]
@@ -484,7 +484,7 @@ dependencies = [
  "cap-primitives",
  "iana-time-zone",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "winx",
 ]
 
@@ -1052,7 +1052,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7e5768da2206272c81ef0b5e951a41862938a6070da63bcea197899942d3b947"
 dependencies = [
  "cfg-if",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "windows-sys 0.52.0",
 ]
 
@@ -1463,7 +1463,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "033b337d725b97690d86893f9de22b67b80dcc4e9ad815f348254c38119db8fb"
 dependencies = [
  "io-lifetimes 2.0.3",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "windows-sys 0.52.0",
 ]
 
@@ -1959,9 +1959,9 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.159"
+version = "0.2.162"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "561d97a539a36e26a9a5fad1ea11a3039a67714694aaa379433e580854bc3dc5"
+checksum = "18d287de67fe55fd7e1581fe933d965a5a9477b38e949cfa9f8574ef01506398"
 
 [[package]]
 name = "libm"
@@ -2067,7 +2067,7 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b2cffa4ad52c6f791f4f8b15f0c05f9824b2ced1160e88cc393d64fff9a8ac64"
 dependencies = [
- "rustix 0.38.37",
+ "rustix 0.38.40",
 ]
 
 [[package]]
@@ -2370,7 +2370,7 @@ dependencies = [
  "concurrent-queue",
  "hermit-abi",
  "pin-project-lite",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "tracing",
  "windows-sys 0.52.0",
 ]
@@ -2630,9 +2630,9 @@ dependencies = [
 
 [[package]]
 name = "rustix"
-version = "0.38.37"
+version = "0.38.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8acb788b847c24f28525660c4d7758620a7210875711f79e7f663cc152726811"
+checksum = "99e4ea3e1cdc4b559b8e5650f9c8e5998e3e5c1343b4eaf034565f32318d63c0"
 dependencies = [
  "bitflags 2.5.0",
  "errno",
@@ -2874,7 +2874,7 @@ dependencies = [
  "cap-std",
  "fd-lock",
  "io-lifetimes 2.0.3",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "windows-sys 0.52.0",
  "winx",
 ]
@@ -2887,14 +2887,14 @@ checksum = "e1fc403891a21bcfb7c37834ba66a547a8f402146eba7265b5a6d88059c9ff2f"
 
 [[package]]
 name = "tempfile"
-version = "3.13.0"
+version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f0f2c9fc62d0beef6951ccffd757e241266a2c833136efbe35af6cd2567dca5b"
+checksum = "28cce251fcbc87fac86a866eeb0d6c2d536fc16d06f184bb61aeae11aa4cee0c"
 dependencies = [
  "cfg-if",
  "fastrand 2.1.1",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "windows-sys 0.59.0",
 ]
 
@@ -3173,7 +3173,7 @@ dependencies = [
  "io-lifetimes 2.0.3",
  "log",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "system-interface",
  "thiserror",
  "tracing",
@@ -3319,7 +3319,7 @@ dependencies = [
  "postcard",
  "psm",
  "rayon",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "semver",
  "serde",
  "serde_derive",
@@ -3365,7 +3365,7 @@ dependencies = [
  "directories-next",
  "log",
  "postcard",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "serde",
  "serde_derive",
  "sha2",
@@ -3453,7 +3453,7 @@ dependencies = [
  "anyhow",
  "cc",
  "cfg-if",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "wasmtime-asm-macros",
  "wasmtime-versioned-export-macros",
  "windows-sys 0.52.0",
@@ -3467,7 +3467,7 @@ checksum = "95b26ef7914af0c0e3ca811bdc32f5f66fbba0fd21e1f8563350e8a7951e3598"
 dependencies = [
  "object 0.33.0",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.40",
  "wasmtime-versioned-export-macros",
 ]
 
